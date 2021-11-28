@@ -1,49 +1,123 @@
 <!DOCTYPE HTML>
-<!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-	<head>
-		<title>Brayton Kerekffy</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
+  <head>
+      <title>Brayton Kerekffy</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
+      <link rel="stylesheet" href="main.css" />
+      <script src = "script.js" defer></script>
 
-				<!-- Header -->
-					<header id="header">
-						<h1>Brayton Kerekffy</h1>
-						<p>Cyber Security Major at George Fox University</p>
-						<nav>
-							<ul>
-								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="https://github.com/BraytonK" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
-						</nav>
-					</header>
+      <!-- Ajax-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
-					</footer>
+      <!-- Scroll-spy navbar-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body class = "is-preload" data-spy="scroll" data-target=".navbar">
 
-			</div>
-		</div>
-		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
-	</body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <div id="bg"></div>
+      <div id="overlay"></div>
+        
+        <!-- Navbar -->
+        <nav id="navbar" class="navbar">
+          <ul class ="nav">
+            <li class ="nav-item"><a class = "nav-link" href="#resume">Resume</a></li>
+            <li class ="nav-item"><a class = "nav-link" href="#github">Github</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header -->
+        <header id ="header">
+          
+          <!-- Name -->
+          <h1><div id = "firstName">Brayton</div>Kerekffy</h1>
+          <p>Hi, Welcome to my webpage &#128075;</p>
+          <div id = "bio"></div>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+
+          <!-- RESUME -->
+         <!-- <div id = "resume">
+            <div class = "container">
+              <p> My resume goes here</p>
+              <br><br><br><br><br>
+              <br><br><br><br><br>
+              <br><br><br><br><br>
+            </div>
+          </div>-->
+
+          <!-- GITHUB -->
+          <!--
+          <div id = "github">
+            <div class = "container">
+              <a href = "https://github.com/BraytonK"></a>
+              <p> Github stuff goes here </p>
+              <div id = "githubProjects"></div>
+            </div>
+          </div>
+        </div>
+        -->
+      </div> 
+  </body>
+  <script type="text/javascript">
+    window.onload = function() { 
+      document.body.classList.remove('is-preload');
+    }
+    window.ontouchmove = function() { return false; }
+    window.onorientationchange = function() { document.body.scrollTop = 0; }
+    $(document).ready(function(){
+        $('#bio').html('<div id="loader"><p>Loading...</p></div>');
+        
+        var requri   = 'https://api.github.com/users/BraytonK';
+        var repouri  = 'https://api.github.com/users/BraytonK/repos';
+        
+        requestJSON(requri, function(json) {
+          if(json.message == "Not Found") {
+            $('#bio').html("<h2>No User Info Found</h2>");
+          }
+          else {
+            // else we have a user and we display their info
+           /** var fullname   = json.name;
+            var username   = json.login;
+            var aviurl     = json.avatar_url;
+            var profileurl = json.html_url;
+            var location   = json.location;
+            var followersnum = json.followers;
+            var followingnum = json.following;
+            var reposnum     = json.public_repos;**/
+            var bio = json.bio;
+            var location = json.location;
+            
+            var outhtml = "<p>" + "I am based out of: " + location + "</p>";
+            console.log(outhtml);
+            
+            /**
+            function outputPageContent() {
+              if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p></div>'; }
+              else {
+                outhtml = outhtml + '<p><strong>Repos List:</strong></p> <ul>';
+                $.each(repositories, function(index) {
+                  outhtml = outhtml + '<li><a href="'+repositories[index].html_url+'" target="_blank">'+repositories[index].name + '</a></li>';
+                });
+                outhtml = outhtml + '</ul></div>'; 
+              }**/
+              $('#bio').html(outhtml);
+            } // end outputPageContent()
+          }); // end requestJSON Ajax call
+      
+      function requestJSON(url, callback) {
+        $.ajax({
+          url: url,
+          complete: function(xhr) {
+            callback.call(null, xhr.responseJSON);
+          }
+        });
+      }
+    });
+    </script>
 </html>
