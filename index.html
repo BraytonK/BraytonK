@@ -21,47 +21,77 @@
       <div id="bg"></div>
       <div id="overlay"></div>
         
-        <!-- Navbar -->
+        <!-- Dynamic Navbar -->
+        <!-- Changes based on the subtopics in the article-->
+        <!---
         <nav id="navbar" class="navbar">
           <ul class ="nav">
-            <li class ="nav-item"><a class = "nav-link" href="#resume">Resume</a></li>
-            <li class ="nav-item"><a class = "nav-link" href="#github">Github</a></li>
+            <li class ="nav-item"><a class = "nav-link" href="#aboutme">About Me</a></li>
+            <li class ="nav-item"><a class = "nav-link" href="#projects">Projects</a></li>
+            <li class ="nav-item"><a class = "nav-link" href="#contact">Contact Me</a></li>
           </ul>
-        </nav>
+        </nav>-->
 
         <!-- Header -->
         <header id ="header">
           
           <!-- Name -->
           <h1><div id = "firstName">Brayton</div>Kerekffy</h1>
-          <p>Hi, Welcome to my webpage &#128075;</p>
-          <div id = "bio"></div>
+
+          <!-- Snippet Browser -->
+          <div id="snippetBrowser">
+
+            <!-- Snippet Tabs -->
+              <div class="tab">
+              <table>
+                <tr>
+                  <th>
+                    <button class="tablinks" onclick="openPage(event, 'aboutme')" id="defaultOpen"> About Me </button>
+                  </th>
+                  <th>
+                    <button class="tablinks" onclick="openPage(event, 'projects')"> Projects </button>
+                  </th>
+                  <th>
+                    <button class="tablinks" onclick="openPage(event, 'contact')"> Contact </button>
+                  </th>
+                </tr>
+              </table>
+              
+
+            <!-- About Me -->
+            <div id="aboutme" class="tabcontent">
+              <article>
+                <h2>About me:</h2>
+                <div id = "bio"></div>
+              </article>
+            </div>
+
+            <!-- Projects -->
+            <div id="projects" class="tabcontent">
+              <article>
+                <div id="all">
+                  <h2>All Projects</h2>
+                  All my projects go here
+                </div>
+              </article>
+              <article>
+                <div id="js">
+                  <h2>JavaScript Projects</h2>
+                  All my JavaScript projects go here
+                </div>
+              </article>
+            </div>
+
+            <!-- Contact Me -->
+            <div id="contact" class="tabcontent">
+              <article>
+                <div id="email">
+                  <h2>Email:</h2>
+                  brayton.k14@gmail.com
+                </div>
+              </article>
+            </div>
         </header>
-
-        <!-- Main -->
-        <div id="main">
-
-          <!-- RESUME -->
-         <!-- <div id = "resume">
-            <div class = "container">
-              <p> My resume goes here</p>
-              <br><br><br><br><br>
-              <br><br><br><br><br>
-              <br><br><br><br><br>
-            </div>
-          </div>-->
-
-          <!-- GITHUB -->
-          <!--
-          <div id = "github">
-            <div class = "container">
-              <a href = "https://github.com/BraytonK"></a>
-              <p> Github stuff goes here </p>
-              <div id = "githubProjects"></div>
-            </div>
-          </div>
-        </div>
-        -->
       </div> 
   </body>
   <script type="text/javascript">
@@ -81,31 +111,12 @@
             $('#bio').html("<h2>No User Info Found</h2>");
           }
           else {
-            // else we have a user and we display their info
-           /** var fullname   = json.name;
-            var username   = json.login;
-            var aviurl     = json.avatar_url;
-            var profileurl = json.html_url;
-            var location   = json.location;
-            var followersnum = json.followers;
-            var followingnum = json.following;
-            var reposnum     = json.public_repos;**/
             var bio = json.bio;
             var location = json.location;
             
-            var outhtml = "<p>" + "I am based out of: " + location + "</p>";
+            var outhtml = bio;
             console.log(outhtml);
             
-            /**
-            function outputPageContent() {
-              if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p></div>'; }
-              else {
-                outhtml = outhtml + '<p><strong>Repos List:</strong></p> <ul>';
-                $.each(repositories, function(index) {
-                  outhtml = outhtml + '<li><a href="'+repositories[index].html_url+'" target="_blank">'+repositories[index].name + '</a></li>';
-                });
-                outhtml = outhtml + '</ul></div>'; 
-              }**/
               $('#bio').html(outhtml);
             } // end outputPageContent()
           }); // end requestJSON Ajax call
@@ -119,5 +130,22 @@
         });
       }
     });
+
+    function openPage(evt, pageName) {
+      let i, tabcontent, tablinks;
+
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for(i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      document.getElementById(pageName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
     </script>
 </html>
