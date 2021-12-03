@@ -532,6 +532,7 @@ footer, header, hgroup, menu, nav, section {
 		position: relative;
 		text-align: right;
 		vertical-align: middle;
+		/** Border still is 5 off onClick()**/
 		padding: 20px;
 	}
 
