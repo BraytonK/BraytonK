@@ -532,12 +532,17 @@ footer, header, hgroup, menu, nav, section {
 		position: relative;
 		text-align: right;
 		vertical-align: middle;
+		padding: 20px;
 	}
 
 	.sticky {
 		position: fixed;
 		top: 0;
 		width: 100%;
+	}
+
+	#logo {
+		vertical-align: -16px;
 	}
 
 /* Snippet */
