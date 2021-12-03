@@ -24,10 +24,10 @@
         <!-- Dynamic Navbar -->
         <!-- Changes based on the subtopics in the article-->
         <nav id="navbar" class="navbar">
-          <ul class ="nav">
-            <li class ="nav-item"><a class = "nav-link" href="#aboutme">About Me</a></li>
-            <li class ="nav-item"><a class = "nav-link" href="#projects">Projects</a></li>
-            <li class ="nav-item"><a class = "nav-link" href="#contact">Contact Me</a></li>
+          <ul class ="nav" id="nav">
+           <!-- <li class="nav-item"><a class="nav-link" href="#aboutme">About Me</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact Me</a></li>-->
           </ul>
         </nav>
 
@@ -38,60 +38,149 @@
           <h1><div id = "firstName">Brayton</div>Kerekffy</h1>
 
           <!-- Snippet Browser -->
+          <div id = "allcontent">
               <!-- Snippet Tabs -->
                 <div class="tab">
-                <table>
+                <table class="snippettabs">
                   <tr>
-                    <th>
-                      <button class="tablinks" onclick="openPage(event, 'aboutme')" id="defaultOpen"> About Me </button>
-                    </th>
-                    <th>
-                      <button class="tablinks" onclick="openPage(event, 'projects')"> Projects </button>
-                    </th>
-                    <th>
-                      <button class="tablinks" onclick="openPage(event, 'contact')"> Contact </button>
-                    </th>
+                    <div id="dynamictabs"></div>
+                      <th>
+                        <button class="tablinks" onclick="openPage(event, 'aboutme')" id="defaultOpen"> About Me </button>
+                      </th>
+                      <th>
+                        <button class="tablinks" onclick="openPage(event, 'projects')"> Projects </button>
+                      </th>
+                      <th>
+                        <button class="tablinks" onclick="openPage(event, 'contact')"> Contact </button>
+                      </th>
+                    </div>
                   </tr>
                 </table>
+                </div>
                 
             <article class = "snippetbrowser">
               <!-- About Me -->
               <div id="aboutme" class="tabcontent">
-                <h2>About me:</h2>
-                <article>
-                  <div id = "bio"></div>
-                </article>
+              <h2>About Me</h2>
+              <article>
+                <div class="snippet">
+                <div class="snippet-container">
+                  <div class="snippet-row-padding">
+                    <div class="snippet-col">
+                      <div class="snippet-card snippet-round snippet-white">
+                        <div class="snippet-container">
+                          <p><div id="bio"></div></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+                </div>
+              </article>
+              <h2>Where I am based out of</h2>
+              <article>
+                <div class="snippet">
+                <div class="snippet-container">
+                  <div class="snippet-row-padding">
+                    <div class="snippet-col">
+                      <div class="snippet-card snippet-round snippet-white">
+                        <div class="snippet-container">
+                          <h3>Location</h3>
+                          <p><div id="location"></div></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+                </div>
+              </article>
               </div>
 
               <!-- Projects -->
               <div id="projects" class="tabcontent">
-                <h2>All Projects</h2>
+                <h2>My Personal Toolchain</h2>
                 <article>
                   <div id="all">
-                    All my projects go here
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Collgg</h3>
+                                <li><a href="https://www.collgg.com/">https://www.collgg.com/</a></li>
+                                <p>
+                                  A website that helps me take what I've learned and compilate it into a neat encyclopedia.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
                   </div>
                 </article>
-                <h2>JavaScript Projects</h2>
+                <h2>Other Projects</h2>
+                <article>
+                  <div id="Github">
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Github</h3>
+                                <p>
+                                  <a href="https://github.com/BraytonK">https://github.com/BraytonK</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </article>
+               <!-- <h2>JavaScript Projects</h2>
                 <article>
                   <div id="js">
                     All my JavaScript projects go here
                   </div>
-                </article>
+                </article>-->
               </div>
 
               <!-- Contact Me -->
               <div id="contact" class="tabcontent">
-                <h2>Email:</h2>
+                <h2>Contacts</h2>
                 <article>
                   <div id="email">
-                    brayton.k14@gmail.com
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Email</h3>
+                                <p>
+                                  brayton.k14@gmail.com
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
                   </div>
                 </article>
               </div>
             </article>
+          </div>
         </header>
   </body>
   <script type="text/javascript">
+
+  // Github Ajax
+
     window.onload = function() { 
       document.body.classList.remove('is-preload');
     }
@@ -114,7 +203,8 @@
             var outhtml = bio;
             console.log(outhtml);
             
-              $('#bio').html(outhtml);
+              $('#bio').html(bio);
+              $('#location').html(location);
             } // end outputPageContent()
           }); // end requestJSON Ajax call
       
@@ -127,6 +217,8 @@
         });
       }
     });
+
+  // Topic navigation
 
     function openPage(evt, pageName) {
       let i, tabcontent, tablinks;
@@ -143,7 +235,10 @@
 
       document.getElementById(pageName).style.display = "block";
       evt.currentTarget.className += " active";
+      loadDynamicNavbar(pageName);
     }
+
+  // Dynamic tab content
 
     // Get the header
     var header = document.getElementById("navbar");
@@ -159,5 +254,29 @@
         header.classList.remove("sticky");
       }
     }
-    </script>
+
+    function loadDynamicNavbar(pageName) {
+
+      // Remove existing tabs
+      var parent = document.getElementById("nav");
+      while (parent.firstChild) {
+        parent.firstChild.remove();
+      }
+
+      // Scan headers
+      var content = document.getElementById(pageName).getElementsByTagName("H2");
+      for (var i = 0; i < content.length; i++) {
+        // Create a new list item for each content header
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        li.className = "nav-item";
+        a.className = "nav-link";
+        a.innerHTML = "#" + content[i].innerHTML;
+        a.href = "#" + content[i].id;
+        // Append the div to the navbar
+        li.appendChild(a);
+        document.getElementById("nav").appendChild(li);
+      }
+    }
+  </script>
 </html>

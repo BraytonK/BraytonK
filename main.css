@@ -92,14 +92,14 @@ footer, header, hgroup, menu, nav, section {
 	margin-right: auto;
 	}
 
-    .snippetbrowser {
+  /**  .snippetbrowser {
 		background: #dce4e4CC;
 	}
 	article {
 		background: #cfdadaCC;
 		border-radius: 0.25em;
 		opacity: 0.7;
-	}
+	}*/
 
 	article h2 {
 		margin: 4px;
@@ -111,6 +111,7 @@ footer, header, hgroup, menu, nav, section {
 	text-align: center;
 	overflow: hidden;
 	text-align: center;
+	display: inline-block;
 	}
 
 	.tab button {
@@ -268,7 +269,6 @@ footer, header, hgroup, menu, nav, section {
 		}
 		
 		#header a {
-			font-size: 1.25em;
 			margin: 0.75em 0 0.25em 0;
 			opacity: 0.75;
 		}
@@ -277,7 +277,11 @@ footer, header, hgroup, menu, nav, section {
 			color: #B15E5E;
 		}
 
-
+        #allcontent {
+			width: 90%;
+			vertical-align: middle;
+			display: inline-block;
+		}
 /* BG */
 
 	#bg {
@@ -499,15 +503,15 @@ footer, header, hgroup, menu, nav, section {
 	nav a:hover {
 		width: 100px;
 		height: 100px;
-		border-radius: 50%;
-		border: 2px solid #3E8C84;
+		/**border-radius: 50%;
+		border: 2px solid #3E8C84;*/
 	}
 
 	nav a.active {
 		width: 100px;
 		height: 100px;
-		border-radius: 50%;
-		border: 2px solid #3E8C84;
+		/**border-radius: 50%;
+		border: 2px solid #3E8C84;*/
 	}
 
 	#navbar {
@@ -534,4 +538,39 @@ footer, header, hgroup, menu, nav, section {
 		position: fixed;
 		top: 0;
 		width: 100%;
+	}
+
+/* Snippet */
+    .snippet {
+	display: inline-block;
+	position: relative;
+	width: 49%;
+	height: auto;
+	border: 2px solid var(--input-border);
+	border-radius: 4px;
+	transition: 180ms box-shadow ease-in-out;
+	color: black;
+	}
+
+	.snippet-container {
+		padding: 0.01em 16px;
+	}
+
+	.snippet-card {
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	}
+
+	.snippet-round {
+		border-radius: 4px;
+	}
+
+	.snippet-white {
+		background-color: white;
+	}
+
+	.snippet-col {
+	}
+
+	.snippet-row-padding {
+		margin: 0 -16px;
 	}
