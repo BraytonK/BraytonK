@@ -20,21 +20,18 @@
     <div id="wrapper">
       <div id="bg"></div>
       <div id="overlay"></div>
-        
+
         <!-- Dynamic Navbar -->
         <!-- Changes based on the subtopics in the article-->
         <nav id="navbar" class="navbar">
           <ul class ="nav" id="nav">
             <li id="entry-nav-item">A <a href="https://collgg.com"><img src="collgg-logo.png" width="50" height="35" id="logo"></a></img> generated page</li>
-           <!-- <li class="nav-item"><a class="nav-link" href="#aboutme">About Me</a></li>
-            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact Me</a></li>-->
           </ul>
         </nav>
 
         <!-- Header -->
         <header id ="header">
-          
+
           <!-- Name -->
           <h1><div id = "firstName">Brayton</div>Kerekffy</h1>
 
@@ -54,51 +51,58 @@
                       <th>
                         <button class="tablinks" onclick="openPage(event, 'contact')"> Contact </button>
                       </th>
-                    </div>
                   </tr>
                 </table>
                 </div>
-                
+          </div>
+
             <article class = "snippetbrowser">
               <!-- About Me -->
               <div id="aboutme" class="tabcontent">
-              <h2>About Me</h2>
-              <article>
-                <div class="snippet">
-                <div class="snippet-container">
-                  <div class="snippet-row-padding">
-                    <div class="snippet-col">
-                      <div class="snippet-card snippet-round snippet-white">
-                        <div class="snippet-container">
-                          <p><div id="bio"></div></p>
+                  <div id="About Me">
+                  <h2>About Me</h2>
+                  **Note for web-based peers** <br>
+                  This page is dynamically loaded from my <a href="https://github.com/BraytonK/BraytonK">Github</a>
+                  <article>
+                    <div class="snippet">
+                    <div class="snippet-container">
+                      <div class="snippet-row-padding">
+                        <div class="snippet-col">
+                          <div class="snippet-card snippet-round snippet-white">
+                            <div class="snippet-container">
+                              <p><div id="bio"></div></p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </div> 
                     </div>
-                  </div> 
-                </div>
-                </div>
-              </article>
-              <h2>Where I am based out of</h2>
-              <article>
-                <div class="snippet">
-                <div class="snippet-container">
-                  <div class="snippet-row-padding">
-                    <div class="snippet-col">
-                      <div class="snippet-card snippet-round snippet-white">
-                        <div class="snippet-container">
-                          <h3>Location</h3>
-                          <p><div id="location"></div></p>
+                    </div>
+                  </article>
+                  </div>
+                  <div id="Where I am based out of">
+                  <h2>Where I am based out of</h2>
+                  <article>
+                    <div class="snippet">
+                    <div class="snippet-container">
+                      <div class="snippet-row-padding">
+                        <div class="snippet-col">
+                          <div class="snippet-card snippet-round snippet-white">
+                            <div class="snippet-container">
+                              <h3>Location</h3>
+                              <p><div id="location"></div></p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </div> 
                     </div>
-                  </div> 
+                    </div>
+                  </article>
+                  </div>
                 </div>
-                </div>
-              </article>
-              </div>
 
               <!-- Projects -->
               <div id="projects" class="tabcontent">
+                <div id="My Personal Toolchain">
                 <h2>My Personal Toolchain</h2>
                 <article>
                   <div id="all">
@@ -121,6 +125,8 @@
                     </div>
                   </div>
                 </article>
+                </div>
+                <div id="Other Projects">
                 <h2>Other Projects</h2>
                 <article>
                   <div id="Github">
@@ -142,16 +148,12 @@
                     </div>
                   </div>
                 </article>
-               <!-- <h2>JavaScript Projects</h2>
-                <article>
-                  <div id="js">
-                    All my JavaScript projects go here
-                  </div>
-                </article>-->
+                </div>
               </div>
 
               <!-- Contact Me -->
               <div id="contact" class="tabcontent">
+                <div id="Contacts">
                 <h2>Contacts</h2>
                 <article>
                   <div id="email">
@@ -174,6 +176,7 @@
                   </div>
                 </article>
               </div>
+            </div>
             </article>
           </div>
         </header>
@@ -273,7 +276,7 @@
         li.className = "nav-item";
         a.className = "nav-link";
         a.innerHTML = "#" + content[i].innerHTML;
-        a.href = "#" + content[i].id;
+        a.href = "#" + content[i].innerHTML;
         // Append the div to the navbar
         li.appendChild(a);
         document.getElementById("nav").appendChild(li);
