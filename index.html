@@ -102,6 +102,60 @@
 
               <!-- Projects -->
               <div id="projects" class="tabcontent">
+               <div id="My Personal Toolchain">
+                <h2>Who Told You That You Were Naked?</h2>
+                <article>
+                  <div id="all">
+                    <div class="snippet">
+                      <div class="snippet-container">
+                        <div class="snippet-row-padding">
+                          <div class="snippet-col">
+                            <div class="snippet-card snippet-round snippet-white">
+                              <div class="snippet-container">
+                                <h3>Fundraising Progress</h3>
+                                <p>
+                                  In Development Stages
+                                  <li>
+                                    <div class="links">
+                                      <a class="openpop" href="https://buy.stripe.com/4gwcNWe1ebtC3VSbIJ">Current Amount Raised</a>
+                                    </div>
+                                    <div class="wrapper">
+                                      <div class="popup">
+                                          <iframe src="">
+                                              <p>Your browser does not support iframes.</p>
+                                          </iframe>
+                                      <a href="#" class="close">X</a>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </p>
+                                <h3>T-Shirt 1</h3>
+                                <p>
+                                  The first design
+                                  <li>
+                                    <div class="links">
+                                      <a class="openpop" href="https://app.skiff.com/docs/6cbbbff7-d02c-4911-9691-514d99f140bd#3jaXO96QBB1TYrXgth1lYIqmmrYUG0%2FqjmGPjhn8xtI%3D">See T-Shirt</a>
+                                      <a class="openpop" href="https://buy.stripe.com/4gwcNWe1ebtC3VSbIJ">Buy Now</a>
+                                    </div>
+                                    <div class="wrapper">
+                                      <div class="popup">
+                                          <iframe src="">
+                                              <p>Your browser does not support iframes.</p>
+                                          </iframe>
+                                      <a href="#" class="close">X</a>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                </div>
                 <div id="My Personal Toolchain">
                 <h2>My Personal Toolchain</h2>
                 <article>
@@ -220,6 +274,20 @@
           }
         });
       }
+      $(document).ready(function () {
+      $(".popup").hide();
+      $(".openpop").click(function (e) {
+          e.preventDefault();
+          $("iframe").attr("src", $(this).attr('href'));
+          $(".links").fadeOut('slow');
+          $(".popup").fadeIn('slow');
+      });
+
+      $(".close").click(function () {
+          $(this).parent().fadeOut("slow");
+          $(".links").fadeIn("slow");
+      });
+});
     });
 
   // Topic navigation
